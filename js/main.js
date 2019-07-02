@@ -86,8 +86,13 @@ initMap = () => {
     id: 'mapbox.streets'
   }).addTo(newMap);
 
+  /*document.getElementById('map-container').blur();
+  document.getElementById('map').blur();*/
   updateRestaurants();
+  document.getElementById('map-container').setAttribute("tabIndex","-1");
+  document.getElementById('map').setAttribute("tabIndex","-1");
 }
+
   /*window.initMap = () => {
   let loc = {
     lat: 40.722216,
@@ -161,20 +166,24 @@ createRestaurantHTML = (restaurant) => {
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  image.alt = `${restaurant.name} ${restaurant.cuisine} ${restaurant.neighborhood}`;
+  image.alt = `${restaurant.name} in ${restaurant.neighborhood}`;
   li.append(image);
+  image.tabIndex = 0;
 
   const name = document.createElement('h1');
   name.innerHTML = restaurant.name;
   li.append(name);
+  name.tabIndex = 0;
 
   const neighborhood = document.createElement('p');
   neighborhood.innerHTML = restaurant.neighborhood;
   li.append(neighborhood);
+  neighborhood.tabIndex = 0;
 
   const address = document.createElement('p');
   address.innerHTML = restaurant.address;
   li.append(address);
+  address.tabIndex = 0;
 
   const more = document.createElement('a');
   more.innerHTML = 'View Details';

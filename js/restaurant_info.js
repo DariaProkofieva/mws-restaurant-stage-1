@@ -1,6 +1,5 @@
 let restaurant;
 var newMap;
-
 /**
  * Initialize map as soon as the page is loaded.
  */
@@ -33,6 +32,8 @@ initMap = () => {
       DBHelper.mapMarkerForRestaurant(self.restaurant, self.newMap);
     }
   });
+  document.getElementById('map-container').setAttribute("tabIndex","-1");
+  document.getElementById('map').setAttribute("tabIndex","-1");
 }
 
   /* window.initMap = () => {
@@ -118,6 +119,7 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
     row.appendChild(time);
 
     hours.appendChild(row);
+    row.tabIndex = 0;
   }
 }
 
@@ -129,6 +131,7 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const title = document.createElement('h2');
   title.innerHTML = 'Reviews';
   container.appendChild(title);
+  title.tabIndex = 0;
 
   if (!reviews) {
     const noReviews = document.createElement('p');
@@ -154,6 +157,7 @@ createReviewHTML = (review) => {
   name.innerHTML = review.name;
   name.classList.add('reviewName');
   div.appendChild(name);
+  name.tabIndex = 0;
 
 
   const date = document.createElement('p');
@@ -161,15 +165,18 @@ createReviewHTML = (review) => {
   date.classList.add('reviewDate');
   div.appendChild(date);
   li.appendChild(div);
+  date.tabIndex = 0;
 
   const rating = document.createElement('p');
   rating.innerHTML = `Rating: ${review.rating}`;
   rating.classList.add('reviewRating');
   li.appendChild(rating);
+  rating.tabIndex = 0;
 
   const comments = document.createElement('p');
   comments.innerHTML = review.comments;
   li.appendChild(comments);
+  comments.tabIndex = 0;
 
   return li;
 }
