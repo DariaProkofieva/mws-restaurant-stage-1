@@ -3,7 +3,7 @@ let restaurants,
   cuisines
 var newMap
 var markers = []
-
+  markers.tabIndex=-1;
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
  */
@@ -86,11 +86,10 @@ initMap = () => {
     id: 'mapbox.streets'
   }).addTo(newMap);
 
-  /*document.getElementById('map-container').blur();
-  document.getElementById('map').blur();*/
   updateRestaurants();
   document.getElementById('map-container').setAttribute("tabIndex","-1");
   document.getElementById('map').setAttribute("tabIndex","-1");
+
 }
 
   /*window.initMap = () => {
@@ -189,6 +188,7 @@ createRestaurantHTML = (restaurant) => {
   more.innerHTML = 'View Details';
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more)
+  more.setAttribute("role","button");
 
   return li
 }
