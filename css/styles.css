@@ -60,6 +60,9 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 }
 label{
 	color: #ffffff;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 /* ====================== Navigation ====================== */
 nav {
@@ -236,6 +239,8 @@ nav h1 a {
 .inside #map-container {
   background: blue none repeat scroll 0 0;
 	height: 400px;
+  height: 300px;
+  padding-top: 120px;
   /*height: 87%;
   position: fixed;
   right: 0;
